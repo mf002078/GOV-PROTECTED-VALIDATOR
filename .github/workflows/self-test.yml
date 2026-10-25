@@ -17,5 +17,14 @@ jobs:
           python-version: '3.12'
       - name: Owned synthetic positive and negative cases
         run: python -B -m unittest discover -s tests -v
+      - name: Verify fixed GOV-GITHUB PR 6 candidate using independent owned parser
+        shell: bash
+        env:
+          SOURCE_SHA: 08bcc423f67a0f89e11874dc8585b8805e3a3edc
+        run: |
+          set -euo pipefail
+          git clone --quiet --no-checkout https://github.com/mf002078/GOV-GITHUB.git "$RUNNER_TEMP/source"
+          git -C "$RUNNER_TEMP/source" cat-file -e "$SOURCE_SHA^{commit}"
+          python -B validator/check_candidate.py --checkout "$RUNNER_TEMP/source" --head "$SOURCE_SHA"
       - name: Trust boundary
-        run: echo "Candidate source never executed as authoritative validator; not Gate A."
+        run: echo "Standalone candidate-run cross-repo verification only; not Gate A, not protected status."
