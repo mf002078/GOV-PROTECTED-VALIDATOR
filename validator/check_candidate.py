@@ -71,7 +71,7 @@ def verify(repo, head):
         changed=paths(repo,parent,sha)-EXCLUDED
         declared=set()
         for record in new:
-            if not isinstance(record,dict) or set(record)!=KEYS or record["schema_version"]!="2.0":
+            if not valid_strict_record(record, parent):
                 raise ValueError("invalid new worklog schema")
             if not isinstance(record["entry_id"],str) or not ENTRY.fullmatch(record["entry_id"]) or record["entry_id"] in seen:
                 raise ValueError("duplicate or invalid entry ID")
