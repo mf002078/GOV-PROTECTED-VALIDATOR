@@ -38,3 +38,46 @@
 - Status: IMPLEMENTED; Gate A BLOCKED/UNVERIFIED
 - Baseline: a052d57ba822a6841cd3b1a080749524f2f92882
 - Limitation: file edits were sequential GitHub commits; per-commit worklog coverage not yet satisfied, no historical log rewritten.
+
+## GOV-PROTECTED-002-REV-001
+
+```json
+{
+  "author_role": "Codex",
+  "baseline_sha": "26026250d7ba49f29349a706a27676827af861d7",
+  "code_files": [
+    "validator/check_candidate.py",
+    "validator/utc_reference.py",
+    "tests/test_independent_contract.py",
+    "tests/test_audit_hardening.py",
+    "tests/test_utc_reference.py",
+    ".github/workflows/self-test.yml",
+    ".github/workflows/structural-validation.yml",
+    "docs/ADR-002-AUDIT-BOUNDARY.md",
+    "docs/evidence/GOV-PROTECTED-002-tests.json"
+  ],
+  "completed_items": [
+    "Preserve legacy Git history and both journal prefixes; LEGACY_AUDIT_EXCEPTION / NOT_ATTESTED only through fixed 26026250 boundary",
+    "Enforce nondecreasing post-boundary UTC and zero future tolerance; fixed TLS Date source cross-checked with executor UTC; source failure rejects",
+    "Reject unknown/self/future correction references, duplicate IDs and duplicate code/evidence paths",
+    "Require exact per-commit diff and same-commit JSONL/Markdown append; no skipped intermediate commit or schema-1 extension",
+    "Reject shallow/missing objects/grafts; disable replacements and lazy fetch; fetch full ancestry without source checkout",
+    "60 Python 3.12 unittest cases passed, exit 0; cross-repository source 08bcc423 structure passes, NOT_ATTESTED",
+    "Keep CI unprivileged and candidate-controlled; no GitHub App/Ruleset/main/source PR modification; Gate A BLOCKED/UNVERIFIED"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-PROTECTED-002-REV-001",
+  "evidence_paths": [
+    "docs/evidence/GOV-PROTECTED-002-tests.json",
+    "docs/ADR-002-AUDIT-BOUNDARY.md",
+    "tests/test_audit_hardening.py",
+    "tests/test_utc_reference.py"
+  ],
+  "issue_id": "GOV-PROTECTED-002",
+  "schema_version": "2.0",
+  "status": "TESTED",
+  "summary": "Implement owner-approved fixed audit boundary, segmented real UTC, correction/identity/path integrity and complete ancestry checks; 60 synthetic tests pass.",
+  "timestamp_utc": "2026-10-25T02:02:37.819625Z",
+  "version": "0.2.0-audit-candidate"
+}
+```

@@ -1,5 +1,6 @@
 """Owned offline synthetic integration tests. No candidate code execution."""
 import json
+import datetime as dt
 import pathlib
 import subprocess
 import tempfile
@@ -44,7 +45,7 @@ class IndependentContractTests(unittest.TestCase):
         return git(self.repo,"rev-parse","HEAD")
     def verify(self,sha):
         with patch.object(v,"ANCHOR",self.anchor):
-            return v.verify(self.repo,sha)
+            return v.verify(self.repo,sha,trusted_utc=dt.datetime(2026,10,25,3,tzinfo=dt.timezone.utc))
     def test_valid_synthetic_commit(self):
         sha=self.commit()
         r=self.verify(sha)
@@ -67,7 +68,7 @@ class IndependentContractTests(unittest.TestCase):
     def test_unrelated_commit_rejected(self):
         sha=self.commit()
         with patch.object(v,"ANCHOR","f"*40):
-            with self.assertRaises(ValueError):v.verify(self.repo,sha)
+            with self.assertRaises(ValueError):v.verify(self.repo,sha,trusted_utc=dt.datetime(2026,10,25,3,tzinfo=dt.timezone.utc))
     def test_history_rewrite_rejected(self):
         a=self.commit()
         self.j.write_text('{"entry_id":"LEGACY-TAMPER"}\n')

@@ -2,21 +2,31 @@ name: Validator self-tests
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, fix/gov-protected-002-audit-hardening]
 permissions:
   contents: read
 jobs:
   self-test:
     runs-on: ubuntu-latest
+    env:
+      VALIDATOR_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Owned synthetic positive and negative cases
         run: python -B -m unittest discover -s tests -v
+      - name: Audit every validator commit after immutable owner boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B validator/check_candidate.py --profile validator-audit \
+            --checkout "$GITHUB_WORKSPACE" --head "$VALIDATOR_SHA"
       - name: Verify fixed GOV-GITHUB PR 6 candidate using independent owned parser
         shell: bash
         env:

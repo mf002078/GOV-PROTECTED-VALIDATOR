@@ -27,8 +27,8 @@ jobs:
           [[ "$CANDIDATE_SHA" =~ ^[0-9a-f]{40}$ ]] || exit 2
           git init "$RUNNER_TEMP/candidate"
           git -C "$RUNNER_TEMP/candidate" remote add origin https://github.com/mf002078/GOV-GITHUB.git
-          git -C "$RUNNER_TEMP/candidate" fetch --no-tags --depth=100 origin "$CANDIDATE_SHA"
-          git -C "$RUNNER_TEMP/candidate" checkout --detach "$CANDIDATE_SHA"
+          git -C "$RUNNER_TEMP/candidate" fetch --no-tags origin "$CANDIDATE_SHA"
+          git -C "$RUNNER_TEMP/candidate" cat-file -e "$CANDIDATE_SHA^{commit}"
       - name: Independently run owned structural validation
         env:
           CANDIDATE_SHA: ${{ inputs.candidate_sha }}

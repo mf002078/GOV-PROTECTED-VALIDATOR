@@ -1,0 +1,41 @@
+{
+  "issue_id": "GOV-PROTECTED-002",
+  "level": "L1",
+  "provenance": "NOT_ATTESTED",
+  "gate_a": "BLOCKED/UNVERIFIED",
+  "runs": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_utc": "2026-10-25T02:01:21.835767+00:00",
+      "finished_utc": "2026-10-25T02:01:24.850303+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_bad_middle_commit_cannot_be_cured (test_audit_hardening.AuditHardeningTests.test_bad_middle_commit_cannot_be_cured) ... ok\ntest_binary_and_rename_paths (test_audit_hardening.AuditHardeningTests.test_binary_and_rename_paths) ... ok\ntest_cli_cannot_move_boundary (test_audit_hardening.AuditHardeningTests.test_cli_cannot_move_boundary) ... ok\ntest_correction_unknown_id (test_audit_hardening.AuditHardeningTests.test_correction_unknown_id) ... ok\ntest_duplicate_legacy_entry_id (test_audit_hardening.AuditHardeningTests.test_duplicate_legacy_entry_id) ... ok\ntest_duplicate_new_id_across_commits (test_audit_hardening.AuditHardeningTests.test_duplicate_new_id_across_commits) ... ok\ntest_duplicate_paths (test_audit_hardening.AuditHardeningTests.test_duplicate_paths) ... ok\ntest_exact_time_is_allowed (test_audit_hardening.AuditHardeningTests.test_exact_time_is_allowed) ... ok\ntest_future_time_rejected (test_audit_hardening.AuditHardeningTests.test_future_time_rejected) ... ok\ntest_graft_shortcut_rejected (test_audit_hardening.AuditHardeningTests.test_graft_shortcut_rejected) ... ok\ntest_jsonl_only_append_rejected (test_audit_hardening.AuditHardeningTests.test_jsonl_only_append_rejected) ... ok\ntest_legacy_exception_field_not_accepted_in_new_records (test_audit_hardening.AuditHardeningTests.test_legacy_exception_field_not_accepted_in_new_records) ... ok\ntest_legacy_history_mutation_truncation_and_reorder (test_audit_hardening.AuditHardeningTests.test_legacy_history_mutation_truncation_and_reorder) ... ok\ntest_missing_ancestor_commit_object (test_audit_hardening.AuditHardeningTests.test_missing_ancestor_commit_object) ... ok\ntest_missing_evidence_blob_rejected (test_audit_hardening.AuditHardeningTests.test_missing_evidence_blob_rejected) ... ok\ntest_missing_log_rejected (test_audit_hardening.AuditHardeningTests.test_missing_log_rejected) ... ok\ntest_new_entry_cannot_reference_later_entry (test_audit_hardening.AuditHardeningTests.test_new_entry_cannot_reference_later_entry) ... ok\ntest_new_history_reordered (test_audit_hardening.AuditHardeningTests.test_new_history_reordered) ... ok\ntest_no_caller_selected_boundary (test_audit_hardening.AuditHardeningTests.test_no_caller_selected_boundary) ... ok\ntest_normal_multiple_commits (test_audit_hardening.AuditHardeningTests.test_normal_multiple_commits) ... ok\ntest_profile_cannot_expand_exception (test_audit_hardening.AuditHardeningTests.test_profile_cannot_expand_exception) ... ok\ntest_replacement_cannot_hide_bad_middle (test_audit_hardening.AuditHardeningTests.test_replacement_cannot_hide_bad_middle) ... ok\ntest_schema1_cannot_extend_legacy_exception (test_audit_hardening.AuditHardeningTests.test_schema1_cannot_extend_legacy_exception) ... ok\ntest_second_new_timestamp_regresses (test_audit_hardening.AuditHardeningTests.test_second_new_timestamp_regresses) ... ok\ntest_segmented_time_ignores_legacy_future_once (test_audit_hardening.AuditHardeningTests.test_segmented_time_ignores_legacy_future_once) ... ok\ntest_self_correction_rejected (test_audit_hardening.AuditHardeningTests.test_self_correction_rejected) ... ok\ntest_shallow_history_rejected (test_audit_hardening.AuditHardeningTests.test_shallow_history_rejected) ... ok\ntest_unverified_utc_rejected (test_audit_hardening.AuditHardeningTests.test_unverified_utc_rejected) ... ok\ntest_valid_legacy_correction (test_audit_hardening.AuditHardeningTests.test_valid_legacy_correction) ... ok\ntest_valid_new_correction (test_audit_hardening.AuditHardeningTests.test_valid_new_correction) ... ok\ntest_wrong_paths_rejected (test_audit_hardening.AuditHardeningTests.test_wrong_paths_rejected) ... ok\ntest_history_rewrite_rejected (test_independent_contract.IndependentContractTests.test_history_rewrite_rejected) ... ok\ntest_incorrect_parent_rejected (test_independent_contract.IndependentContractTests.test_incorrect_parent_rejected) ... ok\ntest_invalid_head_rejected (test_independent_contract.IndependentContractTests.test_invalid_head_rejected) ... ok\ntest_mirror_tamper_rejected (test_independent_contract.IndependentContractTests.test_mirror_tamper_rejected) ... ok\ntest_missing_log_append_rejected (test_independent_contract.IndependentContractTests.test_missing_log_append_rejected) ... ok\ntest_two_revisions (test_independent_contract.IndependentContractTests.test_two_revisions) ... ok\ntest_undeclared_code_path_rejected (test_independent_contract.IndependentContractTests.test_undeclared_code_path_rejected) ... ok\ntest_unrelated_commit_rejected (test_independent_contract.IndependentContractTests.test_unrelated_commit_rejected) ... ok\ntest_valid_synthetic_commit (test_independent_contract.IndependentContractTests.test_valid_synthetic_commit) ... ok\ntest_malformed_record_rejects_bad_timestamp (test_negative_contract.NegativeContractTests.test_malformed_record_rejects_bad_timestamp) ... ok\ntest_malformed_record_rejects_invalid_correction (test_negative_contract.NegativeContractTests.test_malformed_record_rejects_invalid_correction) ... ok\ntest_malformed_record_rejects_missing_fields (test_negative_contract.NegativeContractTests.test_malformed_record_rejects_missing_fields) ... ok\ntest_malformed_record_rejects_untrusted_path (test_negative_contract.NegativeContractTests.test_malformed_record_rejects_untrusted_path) ... ok\ntest_strict_record_passes (test_negative_contract.NegativeContractTests.test_strict_record_passes) ... ok\ntest_deterministic_mirror (test_static.StructuralTests.test_deterministic_mirror) ... ok\ntest_no_candidate_code_execute (test_static.StructuralTests.test_no_candidate_code_execute) ... ok\ntest_workflow_manual_only (test_static.StructuralTests.test_workflow_manual_only) ... ok\ntest_clock_disagreement_fails (test_utc_reference.ClockTests.test_clock_disagreement_fails) ... ok\ntest_duplicate_date_fails (test_utc_reference.ClockTests.test_duplicate_date_fails) ... ok\ntest_host_clock_rollback_fails (test_utc_reference.ClockTests.test_host_clock_rollback_fails) ... ok\ntest_malformed_date_fails (test_utc_reference.ClockTests.test_malformed_date_fails) ... ok\ntest_missing_date_fails (test_utc_reference.ClockTests.test_missing_date_fails) ... ok\ntest_network_failure_no_fallback (test_utc_reference.ClockTests.test_network_failure_no_fallback) ... ok\ntest_redirect_fails (test_utc_reference.ClockTests.test_redirect_fails) ... ok\ntest_remote_ahead_clamped_to_host (test_utc_reference.ClockTests.test_remote_ahead_clamped_to_host) ... ok\ntest_slow_response_fails (test_utc_reference.ClockTests.test_slow_response_fails) ... ok\ntest_stale_date_fails (test_utc_reference.ClockTests.test_stale_date_fails) ... ok\ntest_tls_failure_no_fallback (test_utc_reference.ClockTests.test_tls_failure_no_fallback) ... ok\ntest_verified_conservative_reference (test_utc_reference.ClockTests.test_verified_conservative_reference) ... ok\n\n----------------------------------------------------------------------\nRan 60 tests in 2.845s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "validator/check_candidate.py",
+        "--checkout",
+        "/workspace/GOV-GITHUB",
+        "--head",
+        "08bcc423f67a0f89e11874dc8585b8805e3a3edc"
+      ],
+      "started_utc": "2026-10-25T02:01:24.850331+00:00",
+      "finished_utc": "2026-10-25T02:01:25.643468+00:00",
+      "exit_code": 0,
+      "stdout": "{\"candidate_sha\": \"08bcc423f67a0f89e11874dc8585b8805e3a3edc\", \"gate_a\": \"BLOCKED/UNVERIFIED\", \"legacy_boundary_sha\": \"1975ee74a62be815a032254d51603e15b4bbe093\", \"legacy_status\": \"LEGACY_COMPAT\", \"level\": \"STRUCTURE_PASS_NOT_ATTESTED\", \"new_entries\": 3, \"provenance\": \"NOT_ATTESTED\", \"revisions\": 2, \"utc_source\": \"TLS_GITHUB_DATE_MIN_EXECUTOR_CLOCK\", \"verified_utc_limit\": \"2026-10-25T02:01:24.911447+00:00\"}\n",
+      "stderr": ""
+    }
+  ]
+}
