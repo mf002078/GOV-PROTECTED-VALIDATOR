@@ -18,3 +18,13 @@
 - Status: IMPLEMENTED; Gate A BLOCKED
 - Baseline: 889cbfa531801d44f987a76208454db0981f00b0
 - Limitation: tests/workflow committed before this log entry; per-commit append-only policy not yet enforced for bootstrap.
+
+## GOV-PROTECTED-SOURCE-003 — v0.1.2-prototype
+- UTC: 2026-10-25T02:00:00Z
+- Issue: GOV-PROTECTED-001
+- Completed: added fixed SHA source PR #6 validation step on PR CI, fetching Git objects only
+- Files: .github/workflows/self-test.yml
+- Evidence: PR #1 workflow, online execution pending
+- Status: IMPLEMENTED; Gate A BLOCKED; origin NOT_ATTESTED
+- Baseline: f84f7da81b0f11958519e80b71983c81831f9777
+- Limitation: this was appended after workflow file commit; per-commit governance remains NOT VERIFIED.
