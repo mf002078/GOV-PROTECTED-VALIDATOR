@@ -94,6 +94,36 @@ def verify(repo, head):
         raise ValueError("no revisions examined")
     return {"candidate_sha":head,"revisions":len(revisions),"new_entries":prior_count,"level":"STRUCTURE_PASS_NOT_ATTESTED","gate_a":"BLOCKED/UNVERIFIED"}
 
+def valid_strict_record(record, parent):
+    """Basic strict schema guard for independent reviewer; no acceptance side effects."""
+    import datetime as dt
+    if not isinstance(record, dict) or set(record) != KEYS or record.get("schema_version") != "2.0":
+        return False
+    for k in ("entry_id","version","issue_id","summary","author_role"):
+        if not isinstance(record[k],str) or not record[k].strip():
+            return False
+    if not ENTRY.fullmatch(record["entry_id"]):
+        return False
+    if not isinstance(record["timestamp_utc"],str) or not re.fullmatch(r"\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d{1,6})?Z",record["timestamp_utc"]):
+        return False
+    try:
+        dt.datetime.fromisoformat(record["timestamp_utc"].replace("Z","+00:00"))
+    except ValueError:
+        return False
+    if record["baseline_sha"] != parent or record["status"] not in {"IMPLEMENTED","TESTED","BLOCKED","RELEASED","CORRECTION"}:
+        return False
+    if record["correction_of"] is not None and record["status"] != "CORRECTION":
+        return False
+    if record["status"] == "CORRECTION" and not isinstance(record["correction_of"],str):
+        return False
+    for k in ("completed_items","code_files","evidence_paths"):
+        if not isinstance(record[k],list) or (k!="code_files" and not record[k]):
+            return False
+        for value in record[k]:
+            if not isinstance(value,str) or not value or value.startswith("/") or "\\" in value or any(s in ("",".","..") for s in value.split("/")):
+                return False
+    return True
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--checkout",type=pathlib.Path,required=True)
