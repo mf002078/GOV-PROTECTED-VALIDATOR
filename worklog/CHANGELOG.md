@@ -28,3 +28,13 @@
 - Status: IMPLEMENTED; Gate A BLOCKED; origin NOT_ATTESTED
 - Baseline: f84f7da81b0f11958519e80b71983c81831f9777
 - Limitation: this was appended after workflow file commit; per-commit governance remains NOT VERIFIED.
+
+## GOV-PROTECTED-HARDEN-004 — v0.1.3-prototype
+- UTC: 2026-10-25T02:18:00Z
+- Issue: GOV-PROTECTED-001
+- Completed: enforce schema/timestamp/path checks; five strict-record positive/negative tests
+- Files: validator/check_candidate.py; tests/test_negative_contract.py
+- Evidence: PR #1, CI pending
+- Status: IMPLEMENTED; Gate A BLOCKED/UNVERIFIED
+- Baseline: a052d57ba822a6841cd3b1a080749524f2f92882
+- Limitation: file edits were sequential GitHub commits; per-commit worklog coverage not yet satisfied, no historical log rewritten.
