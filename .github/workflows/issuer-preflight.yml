@@ -1,0 +1,29 @@
+name: Issuer readiness preflight (no credentials)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/issuer-preflight.yml'
+      - 'docs/ISSUER-READINESS.md'
+      - 'validator/**'
+      - 'tests/**'
+      - 'worklog/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  issuer-preflight:
+    name: issuer-preflight-no-secrets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Offline validator unit tests; candidate-owned evidence only
+        run: python -B -m unittest discover -s tests -v
+      - name: Mark trust boundary
+        run: |
+          echo 'NO_APP_KEY NO_INSTALLATION_TOKEN NO_CHECK_RUN_ISSUANCE'
+          echo 'CANDIDATE_OWNED_PREFLIGHT_NOT_GATE_A'

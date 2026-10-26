@@ -1,0 +1,40 @@
+name: Independent structural validation prototype
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_sha:
+        description: "Exact 40-hex commit SHA of public synthetic GOV-GITHUB"
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  structural:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch fixed public source by immutable SHA (no candidate execution)
+        env:
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$CANDIDATE_SHA" =~ ^[0-9a-f]{40}$ ]] || exit 2
+          git init "$RUNNER_TEMP/candidate"
+          git -C "$RUNNER_TEMP/candidate" remote add origin https://github.com/mf002078/GOV-GITHUB.git
+          git -C "$RUNNER_TEMP/candidate" fetch --no-tags origin "$CANDIDATE_SHA"
+          git -C "$RUNNER_TEMP/candidate" cat-file -e "$CANDIDATE_SHA^{commit}"
+      - name: Independently run owned structural validation
+        env:
+          CANDIDATE_SHA: ${{ inputs.candidate_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -B validator/check_candidate.py --checkout "$RUNNER_TEMP/candidate" --head "$CANDIDATE_SHA"
+      - name: Evidence boundary
+        run: echo "PROTOTYPE only; no app identity, no external protected GitHub status, Gate A BLOCKED"
