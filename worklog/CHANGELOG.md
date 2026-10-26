@@ -110,3 +110,34 @@
   "version": "0.3.0-preflight-candidate"
 }
 ```
+
+## GOV-PROTECTED-003-CONTRACT-002
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "8607456fe4429671e6c27bc72440461ce60b2c59",
+  "code_files": [
+    "validator/issuer_evidence_contract.py",
+    "tests/test_issuer_evidence_contract.py",
+    "docs/ISSUER-EVIDENCE-CONTRACT.md"
+  ],
+  "completed_items": [
+    "Add strict candidate-evidence input-format guard; no identity authentication or check issuance",
+    "Add 12 synthetic positive/negative unit tests for mismatched app, repo, hashes and spoofed verdicts",
+    "Preserve all legacy and post-boundary worklog bytes, and block Gate A"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-PROTECTED-003-CONTRACT-002",
+  "evidence_paths": [
+    "docs/ISSUER-EVIDENCE-CONTRACT.md",
+    "tests/test_issuer_evidence_contract.py"
+  ],
+  "issue_id": "GOV-PROTECTED-003",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Add no-credential proposed issuer evidence schema and offline negative tests; NOT_ATTESTED only.",
+  "timestamp_utc": "2026-10-26T08:37:07.913Z",
+  "version": "0.3.1-issuer-contract-candidate"
+}
+```
