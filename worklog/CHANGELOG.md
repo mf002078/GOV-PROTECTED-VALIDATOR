@@ -81,3 +81,32 @@
   "version": "0.2.0-audit-candidate"
 }
 ```
+
+## GOV-PROTECTED-003-PREFLIGHT-001
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "6912bd8840df328df184a5a5ec443642a4a3b808",
+  "code_files": [
+    ".github/workflows/issuer-preflight.yml",
+    "docs/ISSUER-READINESS.md"
+  ],
+  "completed_items": [
+    "Document independently administered issuer requirements and non-attestation boundary",
+    "Add only unprivileged PR workflow with offline unit tests and no protected check issuance",
+    "Preserve historical audit and gate A restrictions"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-PROTECTED-003-PREFLIGHT-001",
+  "evidence_paths": [
+    "docs/ISSUER-READINESS.md"
+  ],
+  "issue_id": "GOV-PROTECTED-003",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Add credential-free candidate-owned issuer readiness preflight and protected-executor runbook; no App key, token or trusted check deployed.",
+  "timestamp_utc": "2026-10-26T08:06:04.107Z",
+  "version": "0.3.0-preflight-candidate"
+}
+```
