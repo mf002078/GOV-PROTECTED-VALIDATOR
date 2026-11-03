@@ -1,0 +1,25 @@
+name: LLM review contract (offline, untrusted)
+on:
+  pull_request:
+    paths:
+      - 'validator/llm_review_contract.py'
+      - 'tests/test_llm_review_contract.py'
+      - '.github/workflows/llm-review-contract.yml'
+      - 'docs/LLM-AUTO-REVIEW.md'
+permissions:
+  contents: read
+jobs:
+  llm-contract-offline:
+    name: llm-contract-offline
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Negative tests for untrusted model output
+        run: python -B -m unittest discover -s tests -p test_llm_review_contract.py -v
+      - name: Never claim independent model review
+        run: echo 'OFFLINE_CONTRACT_ONLY NO_MODEL_CALLED NOT_ATTESTED GATE_A_BLOCKED'
