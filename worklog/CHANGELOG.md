@@ -174,3 +174,36 @@
   "version": "0.4.0-auto-review-contract-candidate"
 }
 ```
+
+## GOV-AUTO-REVIEW-002-REV-001
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "274280d0439d1a306af5fd93794a1def42803885",
+  "code_files": [
+    "validator/llm_diff_boundary.py",
+    "tests/test_llm_diff_boundary.py",
+    ".github/workflows/llm-diff-boundary.yml",
+    "docs/LLM-DIFF-BOUNDARY.md"
+  ],
+  "completed_items": [
+    "Add exact-SHA bounded untrusted diff extractor without executing candidate code",
+    "Add synthetic tests for ancestry, sensitive paths, stale/duplicate model output",
+    "Add no-secret offline CI for model review data-boundary contract",
+    "Preserve Rulesets and Gate A BLOCKED/UNVERIFIED"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-002-REV-001",
+  "evidence_paths": [
+    "docs/LLM-DIFF-BOUNDARY.md",
+    "tests/test_llm_diff_boundary.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Bounded Git diff collection and fail-closed model response parsing in credential-free CI.",
+  "timestamp_utc": "2026-11-03T04:54:22.379Z",
+  "version": "0.4.1-diff-contract-candidate"
+}
+```
