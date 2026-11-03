@@ -6,7 +6,7 @@ class BoundaryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.tmp=tempfile.TemporaryDirectory();cls.repo=Path(cls.tmp.name)
-        cls.git=lambda *a:subprocess.run(["git","-C",str(cls.repo),*a],capture_output=True,check=True).stdout
+        cls.git=staticmethod(lambda *a:subprocess.run(["git","-C",str(cls.repo),*a],capture_output=True,check=True).stdout)
         cls.git("init","-q");cls.git("config","user.name","Synthetic");cls.git("config","user.email","test@example.invalid")
         (cls.repo/"a.txt").write_text("before\n");cls.git("add","a.txt");cls.git("commit","-qm","base")
         cls.base=cls.git("rev-parse","HEAD").decode().strip()

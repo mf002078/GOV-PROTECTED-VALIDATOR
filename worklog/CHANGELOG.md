@@ -207,3 +207,31 @@
   "version": "0.4.1-diff-contract-candidate"
 }
 ```
+
+## GOV-AUTO-REVIEW-002-FIX-002
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "9c973dc8f5a92ce1d667fd1eb46b95b148d805ee",
+  "code_files": [
+    "tests/test_llm_diff_boundary.py"
+  ],
+  "completed_items": [
+    "Diagnosed one failing test: class-assigned lambda received BoundayTests instance as first git argument",
+    "Convert git fixture helper to staticmethod; keep existing test expectations unchanged",
+    "Re-run required CI and retain FAILED evidence for pre-fix SHA"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-002-FIX-002",
+  "evidence_paths": [
+    "tests/test_llm_diff_boundary.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Fix synthetic Git test helper method binding found by real CI run 41580842463; prior negative sensitive-file test errored before assertion.",
+  "timestamp_utc": "2026-11-03T04:55:48.000Z",
+  "version": "0.4.1-diff-contract-fix"
+}
+```
