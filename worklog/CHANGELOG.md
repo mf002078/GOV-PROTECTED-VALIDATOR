@@ -235,3 +235,36 @@
   "version": "0.4.1-diff-contract-fix"
 }
 ```
+
+## GOV-AUTO-REVIEW-003-REV-001
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "13b49e6eeb7575e2b2514384a80f5b25c65b9350",
+  "code_files": [
+    "validator/review_pipeline.py",
+    "tests/test_review_pipeline.py",
+    ".github/workflows/model-adapter-offline.yml",
+    "docs/LLM-MODEL-ADAPTER.md"
+  ],
+  "completed_items": [
+    "Implement injected mock provider interface with request digest and SHA binding and fail-closed model output",
+    "Add synthetic negative tests for provider failures, stale policy/model IDs, malformed JSON and retry limits",
+    "Run no-key GitHub Actions CI; no real model invoked",
+    "Preserve LLM review data provenance and Gate A blocked"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-003-REV-001",
+  "evidence_paths": [
+    "docs/LLM-MODEL-ADAPTER.md",
+    "tests/test_review_pipeline.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "No-secret mockable provider adapter with fail-closed response and repair re-review state machine.",
+  "timestamp_utc": "2026-11-03T04:59:29.500Z",
+  "version": "0.4.2-model-adapter-mock"
+}
+```
