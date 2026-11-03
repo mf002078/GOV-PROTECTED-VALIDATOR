@@ -141,3 +141,36 @@
   "version": "0.3.1-issuer-contract-candidate"
 }
 ```
+
+## GOV-AUTO-REVIEW-001-REV-001
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "05ecfeb6c9320943a4562e650e45c42cb6682eaa",
+  "code_files": [
+    "validator/llm_review_contract.py",
+    "tests/test_llm_review_contract.py",
+    ".github/workflows/llm-review-contract.yml",
+    "docs/LLM-AUTO-REVIEW.md"
+  ],
+  "completed_items": [
+    "Add fail-closed LLM review response contract with exact SHA/policy/repo binding and high/critical issue rejection",
+    "Add fifteen synthetic schema, severity, spoofing and path tests",
+    "Add nonprivileged CI for contract tests; explicitly no model invocation or trusted check issuance",
+    "Record three-repository human-review retirement plan without changing any Ruleset"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-001-REV-001",
+  "evidence_paths": [
+    "docs/LLM-AUTO-REVIEW.md",
+    "tests/test_llm_review_contract.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Stage 1 of LLM-first no-human-review migration: untrusted review report schema guard, offline negative tests, and no-secret CI only.",
+  "timestamp_utc": "2026-11-03T04:49:39.199Z",
+  "version": "0.4.0-auto-review-contract-candidate"
+}
+```
