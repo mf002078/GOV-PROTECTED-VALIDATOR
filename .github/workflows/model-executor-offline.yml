@@ -1,0 +1,19 @@
+name: Isolated model executor contract (offline)
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  model-executor-offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Synthetic transport policy negative tests
+        run: python -B -m unittest discover -s tests -p test_review_executor_contract.py -v
+      - name: Scope boundary
+        run: echo 'NO_REAL_PROVIDER NO_SECRETS NO_EXTERNAL_EGRESS NO_TRUSTED_CHECK GATE_A_BLOCKED'
