@@ -329,3 +329,36 @@
   "version": "0.4.3-executor-fix"
 }
 ```
+
+## GOV-AUTO-REVIEW-005-REV-001
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "1b14c42b8b518a86716e0dd54b524b1d217fc8f1",
+  "code_files": [
+    "validator/openai_responses_transport.py",
+    "tests/test_openai_responses_transport.py",
+    ".github/workflows/responses-transport-offline.yml",
+    "docs/LLM-REAL-PROVIDER-REFERENCE.md"
+  ],
+  "completed_items": [
+    "Add optional fixed-endpoint HTTPS Responses reference adapter with bounded response parsing and fail-closed errors",
+    "Add twenty synthetic fake-HTTP tests for status/model/redirect/oversize/auth redaction and malformed data",
+    "Add unprivileged CI and security deployment gaps documentation",
+    "Maintain zero credential presence, no external model invocation and unchanged protected Rulesets"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-005-REV-001",
+  "evidence_paths": [
+    "docs/LLM-REAL-PROVIDER-REFERENCE.md",
+    "tests/test_openai_responses_transport.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Fixed-host HTTPS reference transport for Responses API, fake-network negative tests and no-credential CI; no real model call.",
+  "timestamp_utc": "2026-11-03T05:08:01.499Z",
+  "version": "0.4.4-responses-transport-reference"
+}
+```
