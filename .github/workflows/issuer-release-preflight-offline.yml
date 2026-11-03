@@ -1,0 +1,19 @@
+name: Trusted issuer release preflight (candidate-only)
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  issuer-release-preflight-offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Synthetic release and replay negative tests
+        run: python -B -m unittest discover -s tests -p test_issuer_release_preflight.py -v
+      - name: Never claim trusted issuance
+        run: echo 'CANDIDATE_ONLY NOT_ATTESTED NO_GITHUB_APP_KEY NO_CHECK_RUN GATE_A_BLOCKED'
