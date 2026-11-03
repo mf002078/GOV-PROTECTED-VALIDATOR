@@ -301,3 +301,31 @@
   "version": "0.4.3-executor-contract-candidate"
 }
 ```
+
+## GOV-AUTO-REVIEW-004-FIX-002
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "fc13f196fbcca9ceda04f70a5b5dd367df0cc0dd",
+  "code_files": [
+    "tests/test_review_executor_contract.py"
+  ],
+  "completed_items": [
+    "Preserve CI failure evidence from candidate fc13f196fbcca9ceda04f70a5b5dd367df0cc0dd",
+    "Rename test helper run to run_review, avoiding unittest.TestCase.run override",
+    "Re-execute exact-commit CI with unchanged security scope"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-004-FIX-002",
+  "evidence_paths": [
+    "tests/test_review_executor_contract.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Fix unittest.TestCase.run override in synthetic executor test harness discovered by CI run 41581636809.",
+  "timestamp_utc": "2026-11-03T05:04:24.939Z",
+  "version": "0.4.3-executor-fix"
+}
+```
