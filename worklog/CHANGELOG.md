@@ -174,3 +174,64 @@
   "version": "0.4.0-auto-review-contract-candidate"
 }
 ```
+
+## GOV-AUTO-REVIEW-002-REV-001
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "274280d0439d1a306af5fd93794a1def42803885",
+  "code_files": [
+    "validator/llm_diff_boundary.py",
+    "tests/test_llm_diff_boundary.py",
+    ".github/workflows/llm-diff-boundary.yml",
+    "docs/LLM-DIFF-BOUNDARY.md"
+  ],
+  "completed_items": [
+    "Add exact-SHA bounded untrusted diff extractor without executing candidate code",
+    "Add synthetic tests for ancestry, sensitive paths, stale/duplicate model output",
+    "Add no-secret offline CI for model review data-boundary contract",
+    "Preserve Rulesets and Gate A BLOCKED/UNVERIFIED"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-002-REV-001",
+  "evidence_paths": [
+    "docs/LLM-DIFF-BOUNDARY.md",
+    "tests/test_llm_diff_boundary.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Bounded Git diff collection and fail-closed model response parsing in credential-free CI.",
+  "timestamp_utc": "2026-11-03T04:54:22.379Z",
+  "version": "0.4.1-diff-contract-candidate"
+}
+```
+
+## GOV-AUTO-REVIEW-002-FIX-002
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "9c973dc8f5a92ce1d667fd1eb46b95b148d805ee",
+  "code_files": [
+    "tests/test_llm_diff_boundary.py"
+  ],
+  "completed_items": [
+    "Diagnosed one failing test: class-assigned lambda received BoundayTests instance as first git argument",
+    "Convert git fixture helper to staticmethod; keep existing test expectations unchanged",
+    "Re-run required CI and retain FAILED evidence for pre-fix SHA"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-002-FIX-002",
+  "evidence_paths": [
+    "tests/test_llm_diff_boundary.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Fix synthetic Git test helper method binding found by real CI run 41580842463; prior negative sensitive-file test errored before assertion.",
+  "timestamp_utc": "2026-11-03T04:55:48.000Z",
+  "version": "0.4.1-diff-contract-fix"
+}
+```

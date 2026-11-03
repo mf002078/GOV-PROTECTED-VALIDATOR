@@ -1,0 +1,3 @@
+GOV-AUTO-REVIEW-002: Offline bounded Git diff and LLM output interface.
+
+This is NOT real model inference or a trusted App Check. The exact-SHA git collector reads untrusted source data only; disallows shell execution and candidate imports, shallow ancestry, mismatched SHA, sensitive file paths, binary, oversized and non-UTF8 diffs. The report parser rejects duplicate JSON fields, bad SHAs/policy and model-claimed attestation or success. Even apparently clean model reports remain REVIEWED_NO_ATTESTATION. Before enabling model inference, independently authorize a provider, data transfer, secret scanner, spending controls, isolation and protected execution. No Ruleset, main, production or Gate A changes.
