@@ -1,0 +1,7 @@
+# GOV-AUTO-REVIEW-006 — Trusted Issuer release preflight (candidate only)
+
+This is a **synthetic preflight contract** for a future Pochun2-controlled Issuer. A passing preflight only returns `ELIGIBLE_FOR_INDEPENDENT_VERIFICATION` and is **not an authenticated success**, protected GitHub Check, Gate A acceptance or sign-off.
+
+The preflight checks exact commit SHAs, source repository + installation, static App ID, named test contexts, policy/model-evidence digests, fresh UTC timestamp and single-run/attempt replay tuple. All these values may be fabricated by candidate code, so the proper trust boundary requires the independent Issuer to fetch fresh GitHub API results under its own credentials and verify actual source head, run jobs/status app identities, configured Ruleset, validator binary SHA, policy version, and durable run-attempt replay database. The candidate workflow never holds App private key. Model report remains untrusted, even if it reports no findings. Self-described check App IDs alone are never proof of signing identity.
+
+**Not implemented in this stage**: Pochun2 issuer repository code, App JWT/installation token, secret storage, GitHub Checks API publishing, a real model run, immutable production replay store, source policy cutover, Ruleset changes, auto-merge or actual Gate A. The app-owned check name `trusted-validator` is illustrative until confirmed in an independent owned workflow, and must not be made mandatory on main prematurely. Source/Validator existing CI retains its own Ruleset settings. No account/order/live vendor scope.

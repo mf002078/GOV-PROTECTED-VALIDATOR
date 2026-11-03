@@ -362,3 +362,36 @@
   "version": "0.4.4-responses-transport-reference"
 }
 ```
+
+## GOV-AUTO-REVIEW-006-REV-001
+
+```json
+{
+  "author_role": "LLM",
+  "baseline_sha": "645bca486564b84e1606e263f3eae7ab88f2e169",
+  "code_files": [
+    "validator/issuer_release_preflight.py",
+    "tests/test_issuer_release_preflight.py",
+    ".github/workflows/issuer-release-preflight-offline.yml",
+    "docs/ISSUER-RELEASE-PREFLIGHT.md"
+  ],
+  "completed_items": [
+    "Add fail-closed synthetic Issuer release evidence preflight and replay/freshness checks",
+    "Add 28 positive/negative cases for stale SHA, policy, model evidence, spoofed App and CI results",
+    "Add no-credentials offline CI and document independently authenticated issuer gaps",
+    "Leave all live Rulesets, credentials and Gate A unchanged"
+  ],
+  "correction_of": null,
+  "entry_id": "GOV-AUTO-REVIEW-006-REV-001",
+  "evidence_paths": [
+    "docs/ISSUER-RELEASE-PREFLIGHT.md",
+    "tests/test_issuer_release_preflight.py"
+  ],
+  "issue_id": "GOV-AUTO-REVIEW-001",
+  "schema_version": "2.0",
+  "status": "IMPLEMENTED",
+  "summary": "Candidate-only trusted issuer preflight: exact SHA, CI context, freshness, replay tuple; never self-attest.",
+  "timestamp_utc": "2026-11-03T05:12:08.268Z",
+  "version": "0.4.5-issuer-release-preflight"
+}
+```
